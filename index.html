@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPI Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 FPI Casino</h1>
+        
+        <div class="balance-box">
+            <h2>💰 Баланс: <span id="balance">1000</span> FPIcoins</h2>
+        </div>
+
+        <div class="game-container">
+            <div class="slots-game">
+                <h3>🎰 Слоты</h3>
+                <div class="slots-display">
+                    <span id="slot1">❓</span>
+                    <span id="slot2">❓</span>
+                    <span id="slot3">❓</span>
+                </div>
+                <button onclick="playSlots()">Крутить (50 FPIcoins)</button>
+            </div>
+
+            <div class="dice-game">
+                <h3>🎲 Кости</h3>
+                <div class="dice-display" id="diceResult">?</div>
+                <button onclick="playDice()">Бросить (50 FPIcoins)</button>
+            </div>
+        </div>
+
+        <div class="bonus-container">
+            <h3>🎁 Ежедневный бонус</h3>
+            <button id="bonusButton" onclick="claimBonus()">Получить бонус</button>
+            <div id="bonusTimer"></div>
+        </div>
+
+        <div class="stats-container">
+            <h3>📊 Статистика</h3>
+            <p>Победы: <span id="wins">0</span></p>
+            <p>Поражения: <span id="losses">0</span></p>
+            <p>Всего выиграно: <span id="totalWon">0</span> FPIcoins</p>
+            <p>Всего проиграно: <span id="totalLost">0</span> FPIcoins</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
