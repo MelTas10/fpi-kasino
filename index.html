@@ -3,50 +3,78 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPI Casino</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>🎰 FPI Casino</h1>
-        
-        <div class="balance-box">
-            <h2>💰 Баланс: <span id="balance">1000</span> FPIcoins</h2>
-        </div>
-
-        <div class="game-container">
-            <div class="slots-game">
-                <h3>🎰 Слоты</h3>
-                <div class="slots-display">
-                    <span id="slot1">❓</span>
-                    <span id="slot2">❓</span>
-                    <span id="slot3">❓</span>
-                </div>
-                <button onclick="playSlots()">Крутить (50 FPIcoins)</button>
-            </div>
-
-            <div class="dice-game">
-                <h3>🎲 Кости</h3>
-                <div class="dice-display" id="diceResult">?</div>
-                <button onclick="playDice()">Бросить (50 FPIcoins)</button>
-            </div>
-        </div>
-
-        <div class="bonus-container">
-            <h3>🎁 Ежедневный бонус</h3>
-            <button id="bonusButton" onclick="claimBonus()">Получить бонус</button>
-            <div id="bonusTimer"></div>
-        </div>
-
-        <div class="stats-container">
-            <h3>📊 Статистика</h3>
-            <p>Победы: <span id="wins">0</span></p>
-            <p>Поражения: <span id="losses">0</span></p>
-            <p>Всего выиграно: <span id="totalWon">0</span> FPIcoins</p>
-            <p>Всего проиграно: <span id="totalLost">0</span> FPIcoins</p>
-        </div>
+    <div class="loader">
+        <div class="spinner"></div>
     </div>
+
+    <header>
+        <nav>
+            <div class="logo">FPI Casino</div>
+            <div class="balance" id="balance">1000 FPI</div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="games-container">
+            <!-- Классическое казино -->
+            <div class="game-card">
+                <h2>Classic Casino</h2>
+                <div class="bet-controls">
+                    <input type="number" id="classic-bet" min="100" value="100">
+                    <button onclick="playClassic()">Играть</button>
+                </div>
+                <div class="result" id="classic-result"></div>
+            </div>
+
+            <!-- Кости -->
+            <div class="game-card">
+                <h2>Dice</h2>
+                <div class="dice-container">
+                    <div class="dice" id="dice1">1</div>
+                    <div class="dice" id="dice2">1</div>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="dice-bet" min="100" value="100">
+                    <button onclick="playDice()">Бросить кости</button>
+                </div>
+            </div>
+
+            <!-- Гонки -->
+            <div class="game-card">
+                <h2>Racing</h2>
+                <div class="cars-selection">
+                    <select id="car-select">
+                        <option value="1">Ferrari (x10)</option>
+                        <option value="2">McLaren (x8)</option>
+                        <option value="3">Mercedes (x6)</option>
+                        <option value="4">Red Bull (x5)</option>
+                        <option value="5">Alpine (x4)</option>
+                    </select>
+                </div>
+                <div class="bet-controls">
+                    <input type="number" id="race-bet" min="100" value="100">
+                    <button onclick="startRace()">Начать гонку</button>
+                </div>
+                <div class="race-track" id="race-track"></div>
+            </div>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats-container">
+            <h2>Статистика</h2>
+            <div id="stats">
+                <p>Всего игр: <span id="total-games">0</span></p>
+                <p>Выигрыши: <span id="wins">0</span></p>
+                <p>Проигрыши: <span id="losses">0</span></p>
+            </div>
+        </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
